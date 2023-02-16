@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var enabled=false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            
+            NavigationLink (
+                isActive:$enabled,
+                destination:{
+                    SubView()
+                },
+                label:{
+                    Text("Go to child view")
+                }
+            )
+            
+            
+            .navigationTitle("Home")
         }
-        .padding()
     }
 }
 
